@@ -5,6 +5,7 @@ import { Container, Grid, Typography, CircularProgress, Box, Button } from '@mui
 import SearchBar from './components/SearchBar';
 import BookCard from './components/BookCard';
 import { useNavigate } from 'react-router-dom';
+import { API_KEY } from './config';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -12,7 +13,7 @@ const App = () => {
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const navigate = useNavigate();
 
-  const API_KEY = "AIzaSyADDMZoBsO4wWn42V1wSdlee2cCA6ng1Xg"; // Replace with your Google Books API key
+  
 
   const fetchBooks = async (query) => {
     if (!query) return;
