@@ -12,7 +12,7 @@ export const CustomThemeProvider = ({ children }) => {
         palette: {
           mode: darkMode ? "dark" : "light",
           primary: {
-            main: darkMode ? "#A7DCA4" : "#2E8B57", // forest/mint
+            main: darkMode ? "#A7DCA4" : "#2E8B57", 
           },
           secondary: {
             main: darkMode ? "#C7F9CC" : "#6BBF74",

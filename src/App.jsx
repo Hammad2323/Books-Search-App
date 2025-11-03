@@ -15,7 +15,7 @@ const HomePage = ({ darkMode }) => {
   const [selectedBook, setSelectedBook] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch book suggestions as user types
+  
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (query.length < 2) {
@@ -77,7 +77,7 @@ const HomePage = ({ darkMode }) => {
           Search Your Favorite Books
         </h1>
 
-        {/* 🌿 Modern Search Bar */}
+        
         <div className="relative w-full max-w-md mx-auto group">
           <div
             className={`flex items-center rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 shadow-md border ${
@@ -106,7 +106,7 @@ const HomePage = ({ darkMode }) => {
             </button>
           </div>
 
-          {/* Suggestion Dropdown */}
+          
           {suggestions.length > 0 && (
             <ul className="absolute z-10 w-full mt-2 bg-white/95 dark:bg-[#2E3B34]/95 rounded-2xl shadow-lg border border-[#A7DCA4] max-h-60 overflow-y-auto animate-fadeIn">
               {suggestions.map((title, idx) => (
@@ -134,7 +134,7 @@ const HomePage = ({ darkMode }) => {
         </button>
       </section>
 
-      {/* Books Display */}
+      
       {loading ? (
         <div className="text-center mt-10">
           <p className="text-lg animate-pulse text-[#2E8B57]">Loading books...</p>

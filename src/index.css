@@ -5,7 +5,7 @@
 
 body {
   font-family: "Source Sans Pro", sans-serif;
-  background-color: #C7F9CC; /* soft mint green */
+  background-color: #C7F9CC; 
   color: #1B4332;
 }
 
@@ -14,13 +14,12 @@ body {
   color: #E8FCEE;
 }
 
-/* 🌿 Elegant Mint Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #E8FCEE; /* soft beige mint tone */
+  background: #E8FCEE; 
   border-radius: 10px;
 }
 
@@ -34,7 +33,6 @@ body {
   background: linear-gradient(180deg, #2E8B57, #1B4332);
 }
 
-/* ✨ Subtle fade-in animation for suggestions */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -49,7 +47,7 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.25s ease-in-out;
 }
-/* Beautiful Mint Scrollbar */
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }

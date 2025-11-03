@@ -14,7 +14,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
       ${darkMode ? "bg-[#0B3D2E]" : "bg-[#1B4332]"}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        {/* 🌿 Logo */}
+  
         <Link
           to="/"
           className="flex items-center gap-2 text-white text-2xl md:text-3xl font-playfair tracking-wide hover:scale-105 transition-transform duration-300"
@@ -25,7 +25,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           </span>
         </Link>
 
-        {/* 💻 Desktop Links */}
+    
         <div className="hidden md:flex items-center gap-8 text-white font-lato text-lg">
           <Link
             to="/"
@@ -48,7 +48,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#A7E9AF] group-hover:w-full transition-all duration-300"></span>
           </Link>
 
-          {/* 🌗 Theme Toggle */}
+    
           <button
             onClick={toggleDarkMode}
             className="ml-4 bg-[#A7E9AF]/20 hover:bg-[#A7E9AF]/40 text-white px-4 py-2 rounded-lg border border-[#A7E9AF]/30 transition-all duration-300 hover:scale-105"
@@ -57,7 +57,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           </button>
         </div>
 
-        {/* 📱 Mobile Menu Button */}
+    
         <button
           className="md:hidden text-white text-2xl focus:outline-none hover:text-[#A7E9AF] transition"
           onClick={toggleMenu}
@@ -66,7 +66,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         </button>
       </div>
 
-      {/* 📖 Mobile Menu Dropdown */}
+    
       {menuOpen && (
         <div className="md:hidden bg-[#1B4332] text-white text-lg flex flex-col items-center space-y-5 py-6 rounded-b-3xl border-t border-[#A7E9AF]/30 shadow-inner animate-slideDown">
           <Link

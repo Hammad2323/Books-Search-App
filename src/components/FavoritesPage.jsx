@@ -48,7 +48,7 @@ const FavoritesPage = ({ darkMode }) => {
         Your Favorite Books
       </h1>
 
-      {/* 🌿 Books Grid */}
+      
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto">
         {favorites.map((book) => {
           const info = book.volumeInfo;
@@ -92,7 +92,7 @@ const FavoritesPage = ({ darkMode }) => {
         })}
       </div>
 
-      {/* 📘 Floating Back Button */}
+    
       <Link
         to="/"
         className="fixed bottom-6 left-6 bg-[#2E8B57] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#1B4332] hover:scale-105 transition-all duration-300 flex items-center gap-2"
