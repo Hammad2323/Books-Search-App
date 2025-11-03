@@ -1,58 +1,59 @@
-// src/components/BookCard.js
-import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
-import { saveAs } from 'file-saver';  // Import saveAs from FileSaver.js
+import React from "react";
+import { Card, CardContent, CardMedia, Typography, Button, Box } from "@mui/material";
 
-const BookCard = ({ book, addToFavorites }) => {
-  // Extracting book details
-  const { title, authors, imageLinks, previewLink, pdfLink } = book.volumeInfo;
-
-  // Handle PDF download using FileSaver.js
-  const handleDownload = () => {
-    if (pdfLink) {
-      saveAs(pdfLink, `${title}.pdf`);  // Save the PDF file with the book title
-    } else {
-      alert("PDF not available for this book.");
-    }
-  };
-
-  // Open the book preview in a new tab
-  const openPreviewInNewTab = () => {
-    if (previewLink) {
-      window.open(previewLink, '_blank');  // Opens the preview link in a new tab
-    } else {
-      alert("Preview not available for this book.");
-    }
-  };
+const BookCard = ({ book, onOpenModal }) => {
+  const { title, authors, imageLinks } = book.volumeInfo;
 
   return (
-    <Card sx={{ maxWidth: 345, backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
+    <Card
+      onClick={() => onOpenModal(book)}
+      sx={{
+        cursor: "pointer",
+        borderRadius: "24px",
+        overflow: "hidden",
+        bgcolor: "#1E2B25",
+        color: "#E8FCEE",
+        boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+        transition: "0.4s",
+        "&:hover": {
+          transform: "translateY(-6px) scale(1.02)",
+          boxShadow: "0 0 25px #A7DCA4AA",
+        },
+      }}
+    >
       <CardMedia
         component="img"
-        height="200"
-        image={imageLinks?.thumbnail || 'https://via.placeholder.com/150'}
+        height="240"
+        image={imageLinks?.thumbnail || "/assets/placeholder.png"}
         alt={title}
+        sx={{
+          objectFit: "cover",
+          borderBottom: "3px solid #2E8B57",
+        }}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+      <CardContent sx={{ textAlign: "center" }}>
+        <Typography variant="h6" fontWeight="bold" sx={{ mb: 0.5 }}>
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {authors ? authors.join(', ') : 'Author information not available'}
+        <Typography variant="body2" sx={{ color: "#CFE9D8" }}>
+          {authors ? authors.join(", ") : "Unknown Author"}
         </Typography>
       </CardContent>
-      {/* Button to open book preview in a new tab */}
-      <Button onClick={openPreviewInNewTab} variant="contained" color="primary" fullWidth>
-        Open Preview
-      </Button>
-      {/* Button to download PDF */}
-      <Button onClick={handleDownload} variant="contained" color="secondary" fullWidth sx={{ marginTop: 2 }}>
-        Download PDF
-      </Button>
-      {/* Button to add book to favorites */}
-      <Button onClick={() => addToFavorites(book)} variant="outlined" color="secondary" fullWidth sx={{ marginTop: 2 }}>
-        Add to Favorites
-      </Button>
+      <Box sx={{ px: 2, pb: 2 }}>
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{
+            bgcolor: "#2E8B57",
+            color: "#fff",
+            borderRadius: "12px",
+            textTransform: "none",
+            "&:hover": { bgcolor: "#1B4332" },
+          }}
+        >
+          View Details
+        </Button>
+      </Box>
     </Card>
   );
 };
