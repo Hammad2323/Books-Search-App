@@ -4,7 +4,6 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import BookModal from "./components/BookModal";
 import FavoritesPage from "./components/FavoritesPage";
-import { API_KEY } from "./config";
 import "./index.css";
 
 const HomePage = ({ darkMode }) => {
@@ -15,7 +14,9 @@ const HomePage = ({ darkMode }) => {
   const [selectedBook, setSelectedBook] = useState(null);
   const navigate = useNavigate();
 
-  
+  // Use the API key from .env
+  const API_KEY = import.meta.env.VITE_API_KEY;
+
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (query.length < 2) {
@@ -34,7 +35,7 @@ const HomePage = ({ darkMode }) => {
 
     const timeout = setTimeout(fetchSuggestions, 300);
     return () => clearTimeout(timeout);
-  }, [query]);
+  }, [query, API_KEY]);
 
   const fetchBooks = async (searchTerm) => {
     if (!searchTerm) return;
@@ -77,7 +78,6 @@ const HomePage = ({ darkMode }) => {
           Search Your Favorite Books
         </h1>
 
-        
         <div className="relative w-full max-w-md mx-auto group">
           <div
             className={`flex items-center rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 shadow-md border ${
@@ -91,12 +91,11 @@ const HomePage = ({ darkMode }) => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search for books or authors..."
-              className={`w-full px-5 py-3 rounded-l-2xl border-none focus:outline-none text-base
-                ${
-                  darkMode
-                    ? "text-[#E8FCEE] placeholder-[#B8EFC4]"
-                    : "text-[#1B4332] placeholder-[#3C6E47]"
-                }`}
+              className={`w-full px-5 py-3 rounded-l-2xl border-none focus:outline-none text-base ${
+                darkMode
+                  ? "text-[#E8FCEE] placeholder-[#B8EFC4]"
+                  : "text-[#1B4332] placeholder-[#3C6E47]"
+              }`}
             />
             <button
               onClick={() => fetchBooks(query)}
@@ -106,7 +105,6 @@ const HomePage = ({ darkMode }) => {
             </button>
           </div>
 
-          
           {suggestions.length > 0 && (
             <ul className="absolute z-10 w-full mt-2 bg-white/95 dark:bg-[#2E3B34]/95 rounded-2xl shadow-lg border border-[#A7DCA4] max-h-60 overflow-y-auto animate-fadeIn">
               {suggestions.map((title, idx) => (
@@ -134,7 +132,6 @@ const HomePage = ({ darkMode }) => {
         </button>
       </section>
 
-      
       {loading ? (
         <div className="text-center mt-10">
           <p className="text-lg animate-pulse text-[#2E8B57]">Loading books...</p>

@@ -1,14 +1,14 @@
-/* Tailwind layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Font imports */
 @import "@fontsource/playfair-display";
 @import "@fontsource/source-sans-pro";
 @import "@fontsource/lato";
 
-/* Global styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   background-color: #C7F9CC; 
@@ -20,7 +20,7 @@ body {
   color: #E8FCEE;
 }
 
-/* Custom scrollbar */
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
@@ -37,7 +37,7 @@ body {
   border-radius: 8px;
 }
 
-/* Fade-in animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
